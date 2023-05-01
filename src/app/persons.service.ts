@@ -36,6 +36,6 @@ export class PersonsService {
   deletePersonById(id: number): Observable<Person>{
     return this.http.delete<Person>(this.url+'personas/'+id);
     }
-  
+
 
 }

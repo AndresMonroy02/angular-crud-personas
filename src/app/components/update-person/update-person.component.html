@@ -1,7 +1,7 @@
 <div class="alert alert-primary" role="alert">
     <a href="/" class="btn btn-primary ">Volver a Estudiantes</a>
 </div>
-    
+
 <div class="container col-md-6">
     <div class="card">
         <div class="card-header">
@@ -11,17 +11,17 @@
             <form [formGroup]="form" (ngSubmit)="submit()">
                 <div class="form-group">
                     <label for="">Nombres</label>
-                    <input type="text" name="nombres" class="form-control" value="{{person?.nombres}}">
+                    <input type="text" formControlName="nombres" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Apellidos</label>
-                    <input type="text" name="apellidos"  class="form-control" value="{{person?.apellidos}}">
+                    <input type="text" formControlName="apellidos"  class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Programa</label>
-                    <input type="text" name="programa"  class="form-control" value="{{person?.programa}}">
+                    <input type="text" formControlName="programa"  class="form-control">
                 </div>
-                <button type="submi" class="btn btn-danger">Guardar</button>
+                <button type="submit" class="btn btn-danger">Guardar</button>
             </form>
         </div>
     </div>

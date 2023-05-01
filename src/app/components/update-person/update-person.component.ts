@@ -12,29 +12,32 @@ export class UpdatePersonComponent {
   person:any
   data: any
 
+  form = new FormGroup({
+    nombres: new FormControl('', Validators.required),
+    apellidos: new FormControl('', Validators.required),
+    programa: new FormControl('', Validators.required),
+  })
+
   constructor(private personService:PersonsService, private route: ActivatedRoute, private router:Router){}
 
   ngOnInit(): void{
     let id = this.route.snapshot.params['id']
     this.personService.getPersonById(id).subscribe(data=>{
       this.person = data
-      console.log(data)
+      this.form = new FormGroup({
+        nombres: new FormControl(data.nombres, Validators.required),
+        apellidos: new FormControl(data.apellidos, Validators.required),
+        programa: new FormControl(data.programa, Validators.required),
+      })
     })
   }
 
-  form = new FormGroup({
-    nombre: new FormControl('', Validators.required),
-    apellidos: new FormControl('', Validators.required),
-    programa: new FormControl('', Validators.required),
-  })
 
   submit(){
     this.data = this.form.value
     this.person.nombres = this.data.nombres
     this.person.apellidos = this.data.apellidos
     this.person.programa = this.data.programa
-
-    console.log(this.data)
 
     this.personService.updatePerson(this.person?.id, this.person).subscribe(data=>{
       console.log(data)
