@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="alert alert-primary" role="alert">
+        <a href="/add" class="btn btn-primary ">Crear Estudiante</a>
+    </div>
+    
+    
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Estudiantes</h3>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-over">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor= "let persona of users" class="text-center">
+                        <td>{{persona?.id}}</td>
+                        <td>{{persona?.nombres}}</td>
+                        <td>{{persona?.apellidos}}</td>
+                        <td>{{persona?.programa}}</td>
+                        <td>
+                            <button class="btn btn-warning" (click)="onEditar(persona?.id)">Editar</button>
+                            <button class="btn btn-danger" (click)="deletePerson(persona?.id)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
